@@ -22,3 +22,13 @@ if days == '1':
           f'Wind speed: {weather_1.wind_speed} km/h\n'
           f'Wind direction: {weather_1.wind_direction}°\n'
           f'Weather code: {weather_1.weather_code}\n')
+else:
+    temperature, wind_speed, wind_direction, weather_code = weather_client.get_forecast(latitude, longitude, int(days))
+    weather_days = WeatherDays(temperature, wind_speed, wind_direction, weather_code)
+
+    print(f'\nCurrent weather {days}\n'
+          f'----------------\n'
+          f'Temperature MAX: {[el for el in weather_days.temperature_max]} °C\n'
+          f'Temperature MIN: {[el for el in weather_days.temperature_min]} °C\n'
+          f'Weather code: {[el for el in weather_days.weather_code]}°\n'
+          f'Date: {[el for el in weather_days.time]}\n')
