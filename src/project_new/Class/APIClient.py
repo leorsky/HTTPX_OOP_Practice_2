@@ -23,3 +23,11 @@ class APIClient:
         response = self.client.patch(endpoint, json=data)
         response.raise_for_status()
         return response.json()
+
+    def delete(self, endpoint='', params=None):
+        response = self.client.delete(endpoint, params=params)
+        response.raise_for_status()
+        if response.content:
+            return response.json()
+
+        return {'status_code': response.status_code}
