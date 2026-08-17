@@ -8,3 +8,8 @@ class APIClient:
         response = self.client.get(endpoint, params=params)
         response.raise_for_status()
         return response.json()
+
+    def post(self, endpoint='', data=None):
+        response = self.client.post(endpoint, json=data)
+        response.raise_for_status()
+        return response.json()
