@@ -18,3 +18,8 @@ class APIClient:
         response = self.client.put(endpoint, json=data)
         response.raise_for_status()
         return response.json()
+
+    def patch(self, endpoint='', data=None):
+        response = self.client.patch(endpoint, json=data)
+        response.raise_for_status()
+        return response.json()
