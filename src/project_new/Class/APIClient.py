@@ -13,3 +13,8 @@ class APIClient:
         response = self.client.post(endpoint, json=data)
         response.raise_for_status()
         return response.json()
+
+    def put(self, endpoint='', data=None):
+        response = self.client.put(endpoint, json=data)
+        response.raise_for_status()
+        return response.json()
